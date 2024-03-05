@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "anthropic-tools"
+version = "0.1.0"
+description = ""
+authors = ["Kyle Hersey <kyle@usepepper.com>"]
+readme = "README.md"
+packages = [
+    { include = "tool_use_package" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+anthropic-bedrock = {extras = ["bedrock"], version = "^0.8.0"}
+anthropic = "^0.18.1"
+tqdm = "^4.66.2"
+elasticsearch = "^8.12.1"
+more-itertools = "^10.2.0"
+beautifulsoup4 = "^4.12.3"
+pinecone-client = "^3.1.0"
+wikipedia = "^1.4.0"
+tenacity = "^8.2.3"
+aiohttp = "^3.9.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
