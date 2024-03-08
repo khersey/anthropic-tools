@@ -1,0 +1,39 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    - id: end-of-file-fixer
+      stages: [push]
+    - id: trailing-whitespace
+      stages: [push]
+    - id: check-merge-conflict
+      stages: [push]
+    - id: detect-private-key
+      stages: [push]
+    - id: pretty-format-json
+      args: [--autofix]
+      stages: [push]
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.2.1
+    hooks:
+      - id: autoflake
+        stages: [push]
+  - repo: local
+    hooks:
+    - id: black
+      name: black
+      entry: black
+      language: python
+      language_version: python3.11
+      types_or: [python]
+      stages: [push]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.7
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args: [ --fix, --exit-non-zero-on-fix]
+        stages: [push]
+      # Run the formatter.
+      - id: ruff-format
+        stages: [push]
